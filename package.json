@@ -4,7 +4,10 @@
   "description": "Compositor of json files",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "npx eslint ./src --fix",
+    "start": "npm run build && node dist/index.js",
+    "build": "npx rimraf ./dist && tsc",
+    "test": "npx vitest run"
   },
   "repository": {
     "type": "git",
