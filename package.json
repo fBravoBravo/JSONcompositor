@@ -1,0 +1,31 @@
+{
+  "name": "jsoncompositor",
+  "version": "1.0.0",
+  "description": "Compositor of json files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fBravoBravo/JSONcompositor.git"
+  },
+  "author": "Francisco Bravo (fBravoBravo)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fBravoBravo/JSONcompositor/issues"
+  },
+  "homepage": "https://github.com/fBravoBravo/JSONcompositor#readme",
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.4",
+    "@types/node": "^22.5.4",
+    "@typescript-eslint/eslint-plugin": "^8.5.0",
+    "@typescript-eslint/parser": "^8.5.0",
+    "eslint": "^9.10.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.6.2"
+  }
+}
