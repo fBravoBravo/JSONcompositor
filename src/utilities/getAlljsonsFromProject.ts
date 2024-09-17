@@ -1,17 +1,19 @@
-import { readdir } from 'fs/promises';
+import { readdir, stat } from 'fs/promises';
 
-export async function getAlljsonsFromProject(projectPath: string) {
-  const directoryEntries = await readdir(projectPath);
-  const jsonFragmentsFiles = [];
+export async function getAlljsonsFromProject(projectPath: string, jsons: string[] = []) {
+  const directoriesEntries = await readdir(projectPath);
 
-  for (const entry of directoryEntries) {
-    if (entry.isDirectory()) {
-      jsonFragmentsFiles.push(...(await getAlljsonsFromProject(entry.path)));
-    } else {
-      if (entry.name.endsWith('.fragment.json')) {
-        jsonFragmentsFiles.push(entry.path);
-      }
+  for (const diEntry of directoriesEntries) {
+    const diPath = `${projectPath}/${diEntry}`;
+    const diStat = await stat(diPath);
+
+    if (diStat.isDirectory()) {
+      await getAlljsonsFromProject(diPath, jsons);
+    }
+
+    if (diEntry.endsWith('.json')) {
+      jsons.push(diPath);
     }
   }
-  files.filter((file) => file.endsWith('.fragment.json'));
+  return jsons;
 }
